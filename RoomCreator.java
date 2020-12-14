@@ -22,7 +22,7 @@ public class RoomCreator implements Creator{
 	        			rs.getBoolean("Social_distancing"), 
 	        			rs.getInt("lights_intensity"));
 	        } else {
-	        	opera = null;
+	        	room = null;
 	        }
 		}
 		catch (Exception e) {
