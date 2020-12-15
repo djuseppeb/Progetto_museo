@@ -6,10 +6,11 @@ import java.sql.Statement;
 
 public class RoomCreator implements Creator{
     Connection conn = DbAccess.getAccess().conn; //get Db istance
-    Component room = null;
+ 
     
 	@Override
 	public Component createComponent(int ID) {	//search room using ID
+		   Component room = null;
 		try {
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM room where ID_room = " +  ID );

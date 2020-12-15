@@ -7,9 +7,10 @@ import java.io.IOException;
 
 public class OperaCreator implements Creator{
     Connection conn = DbAccess.getAccess().conn;	 //get Db istance
-    Component opera = null;
+
 	@Override
 	public Component createComponent(int ID) { //search Opera using ID
+	    Component opera = null;
 		try {
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM art_piece where ID_art = " +  ID );
@@ -36,6 +37,7 @@ public class OperaCreator implements Creator{
 	
 	//Overload
 	public Component createComponent(String title) {	//search Opera using Title
+	    Component opera = null;
 		try {
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM art_piece where Title = " +  title );
@@ -43,7 +45,7 @@ public class OperaCreator implements Creator{
 	        if(rs.next()) {								//if rs is not empty create opera
 	        	opera = new Opera(rs.getInt("ID_art"), 
 						rs.getString("Title"), 
-						rs.getString("Title"), 
+						rs.getString("Availability"), 
 						rs.getString("Artist"), 
 						rs.getString("Type"), 
 						rs.getInt("Room"), 
