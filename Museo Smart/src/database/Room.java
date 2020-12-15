@@ -1,5 +1,10 @@
 package database;
-
+/*
+ * Class Room use factory pattern and is a concrete product that contain data from room table in db.
+ * @author Albanese and Virruso
+ * @version 1.1
+ *
+ */
 public class Room implements Component {
 
 	private int ID_room;
@@ -21,6 +26,7 @@ public class Room implements Component {
 		this.lights = lights;
 	}
 	
+	//get methods to get private values
 	@Override
 	public int getID() {
 		return this.ID_room;

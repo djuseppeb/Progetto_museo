@@ -1,4 +1,10 @@
 package database;
+/*
+ * Class OperaCreator use factory pattern and is a concrete product creator that allows to create Opera Object, add news piece of art in db and update existing piece of art
+ * @author Albanese and Virruso
+ * @version 1.3
+ *
+ */
 
 import java.sql.Connection;
 import java.sql.ResultSet;

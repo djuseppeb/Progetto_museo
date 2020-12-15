@@ -1,5 +1,10 @@
 package database;
-
+/*
+ * Class DbAccess use singleton pattern and allows to instantiate a single class instance to access the db
+ * @author Albanese and Virruso
+ * @version 1.0
+ *
+ */
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -7,7 +12,7 @@ public class DbAccess {
 	public static DbAccess access = null;
     public static Connection conn = null;
 
-	public static DbAccess getAccess() {		//Single istance(Pattern Singleton)
+	public static DbAccess getAccess() {		//get single istance
 		if(access  == null) {
 			conn = DbAccess.connect("gestione_museo");
 			access = new DbAccess();

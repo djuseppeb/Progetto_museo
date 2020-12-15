@@ -1,5 +1,10 @@
 package database;
-
+/*
+ * Class RoomCreator use factory pattern and is a concrete product creator that allows to create Room Object
+ * @author Albanese and Virruso
+ * @version 1.0
+ *
+ */
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;

@@ -1,9 +1,13 @@
 package database;
-
+/*
+ * Interface Creator use factory pattern: correspond to the productCreator
+ * @author Albanese and Virruso
+ * @version 1.0
+ *
+ */
 
 public interface Creator {
-	//abstract methods
-	public abstract Component createComponent(int ID);
+	public Component createComponent(int ID);
 
 
 }

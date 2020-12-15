@@ -1,4 +1,10 @@
 package database;
+/*
+ * Class Opera use factory pattern and is a concrete product that contain data from art_piece table in db.
+ * @author Albanese and Virruso
+ * @version 1.1
+ *
+ */
 
 public class Opera implements Component {
 	
@@ -26,6 +32,7 @@ public class Opera implements Component {
 		this.value = value;
 	}
 	
+	//get methods to get private values
 	@Override
 	public int getID() {
 		return this.ID_art;
