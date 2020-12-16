@@ -65,6 +65,7 @@ public class SubMenuBuilder implements MenuBuilder{
 	public SubMenu getProduct () {
 		//return new Menu(this.panel, this.buttons);
 		this.subMenu.setButtons(this.buttons);
+		this.subMenu.setVisible(true);
 		return this.subMenu;
 	}
 

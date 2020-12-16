@@ -8,15 +8,16 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
+public class RoomDisplayBuilder implements DisplayBuilder{
 
-public class HomeMenuBuilder implements MenuBuilder{
-	
-	private HomeMenu homeMenu;
+	private RoomDisplay roomDisplay;
 	private JPanel panel;
 	private JButton[] buttons;
+	private JTextArea textArea = new JTextArea();
 	
-	public HomeMenuBuilder () {
+	public RoomDisplayBuilder () {
 		this.reset();
 	}
 	
@@ -28,19 +29,22 @@ public class HomeMenuBuilder implements MenuBuilder{
 
 	@Override
 	public void createWindow (String title) {
-		this.homeMenu = new HomeMenu (title);
+		this.roomDisplay= new RoomDisplay (title);
 		//this.menu.setTitle(title);
 		//this.menu.setSize(width, height);
-		this.homeMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.homeMenu.setSize(600, 400);
-		this.homeMenu.setLocationRelativeTo(null);
+		this.roomDisplay.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.roomDisplay.setSize(600, 400);
+		this.roomDisplay.setLocationRelativeTo(null);
 	}
 	
 	@Override
-	public void createPanel () {
+	public void createPanel (String info) {
 		this.panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
 		this.panel.setLayout(new GridLayout(0,1));       //"GridLayout" is a LayoutManager
-		this.homeMenu.add(this.panel, BorderLayout.CENTER);
+		this.textArea.setText(info);
+		this.textArea.setEditable(false);
+		this.panel.add(this.textArea);
+		this.roomDisplay.add(this.panel, BorderLayout.CENTER);
 		
 
 	}
@@ -55,7 +59,7 @@ public class HomeMenuBuilder implements MenuBuilder{
 			if ( i<buttons.length )
 				this.buttons[i] = new JButton(buttons[i]);
 			else
-				this.buttons[i] = new JButton("CHIUDI");
+				this.buttons[i] = new JButton("HOME");
 			this.buttons[i].setPreferredSize(new Dimension(100,50));
 			this.panel.add(this.buttons[i]);
 		}
@@ -63,11 +67,10 @@ public class HomeMenuBuilder implements MenuBuilder{
 	}	
 
 	
-	public HomeMenu getProduct () {
+	public RoomDisplay getProduct () {
 		//return new Menu(this.panel, this.buttons);
-		this.homeMenu.setButtons(this.buttons);
-		this.homeMenu.setVisible(true);
-		return this.homeMenu;
+		this.roomDisplay.setButtons(this.buttons);
+		this.roomDisplay.setVisible(true);
+		return this.roomDisplay;
 	}
-
 }
