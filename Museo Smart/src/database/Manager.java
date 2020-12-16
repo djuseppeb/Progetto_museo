@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Manager {
 	
-	//Return ArrayList with Opera objects
+	//Returns ArrayList with Opera objects
 	public static List<Opera> getArtList(){
 		ArrayList<Opera> lista = new ArrayList<>();
 		int i = 1;
@@ -19,7 +19,7 @@ public class Manager {
 		return lista;
 	}
 	
-	//Return ArrayList with Room objects
+	//Returns ArrayList with Room objects
 	public static List<Room> getRoomList(){
 		ArrayList<Room> lista = new ArrayList<>();
 		int i = 1;
@@ -33,25 +33,45 @@ public class Manager {
 		return lista;
 	}
 
-	//Return String with room info
+	//Returns String with room info
 	public static String getRoomString(Room room){
 		String roomInfo = "";
+		String termalStatus ="";
+		if (room.getTermal())
+			termalStatus ="Acceso";
+			else
+				termalStatus ="Spento";
+		
+		String socialDistance = "";
+		if(room.isDistanceRespected())
+			socialDistance ="Rispettato";
+			else
+				socialDistance ="Non rispettato!";
+		
+		
 		roomInfo = "Stanza "+ room.getID()+
 				"\nTemperatura: "+room.getTemp()+
-				"\nStato Impianto termico: "+room.getTermal()+
+				"\nStato Impianto termico: "+termalStatus+
 				"\nNumero Persone: "+room.getPeople()+
-				"\nDistanziamento sociale "+room.getDistance()+
+				"\nDistanziamento sociale "+socialDistance+
 				"\nStato luci: "+room.getLights();
 		
 		return roomInfo;
 	}
 
-	//Return Art pieces aviailable in a room
+	//Returns Art pieces aviailable in a room
 	public static String getAvilableOpera(Opera art, int room){
 		if((art.getStatus().equals("Disponibile"))&&(art.getRoom()==room)){
-			return "\n"+art.getTitle();
+			return "\n>"+art.getTitle();
 		} else
 			return "";
-		
+	}
+	
+	//Returns a String with all Art piece titles in a room
+	public static String getAvilableOperaString(ArrayList<Opera> listaOpere, int room){
+		String listAvailable = "";
+		for(int i = 0; i<listaOpere.size(); i++)
+			listAvailable += getAvilableOpera(listaOpere.get(i), room);
+		return listAvailable;
 	}
 }
