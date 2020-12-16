@@ -19,13 +19,13 @@ public class OperaCreator implements Creator{
 	    Component opera = null;
 		try {
 			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM art_piece where ID_art = " +  ID );
+			ResultSet rs = stmt.executeQuery("SELECT * FROM art_piece where ID_art = " +  ID);
 			
 	        if(rs.next()) {								//if rs is not empty create opera
 	        	opera = new Opera(rs.getInt("ID_art"), 
 						rs.getString("Title"), 
-						rs.getString("Availability"), 
 						rs.getString("Artist"), 
+						rs.getString("Availability"), 
 						rs.getString("Type"), 
 						rs.getInt("Room"), 
 						rs.getString("Art_movement"), 
@@ -47,13 +47,13 @@ public class OperaCreator implements Creator{
 	    Component opera = null;
 		try {
 			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM art_piece where Title = " +  title );
+			ResultSet rs = stmt.executeQuery("SELECT * FROM art_piece where Title = '" +  title + "'");
 			
 	        if(rs.next()) {								//if rs is not empty create opera
 	        	opera = new Opera(rs.getInt("ID_art"), 
 						rs.getString("Title"), 
-						rs.getString("Availability"), 
 						rs.getString("Artist"), 
+						rs.getString("Availability"), 
 						rs.getString("Type"), 
 						rs.getInt("Room"), 
 						rs.getString("Art_movement"), 
@@ -99,13 +99,30 @@ public class OperaCreator implements Creator{
 	
 	//**functions to modify Opera fields in DB**
 	
-	public boolean updateTitle(int ID, String title ) {	//function to modify Title
+	public boolean updateTitle(int ID, String title) {	//function to modify Title
 	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
 	    try {
 			Statement stmt = conn.createStatement();
-            stmt.executeUpdate("update art_piece set Title='" + title + "' where ID_art=" + ID);
-            return true;
-            
+            if(stmt.executeUpdate("update art_piece set Title = '" + title + "' where ID_art = " + ID) == 1)
+            	return true;
+            else
+            	return false;
+		}
+		catch (Exception e) {
+			System.err.println("DB ERROR!");
+			System.err.println(e.getMessage());
+			return false;
+		}
+	}
+	
+	public boolean updateArtist(int ID, String artist) { //method to modify Artist
+	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
+	    try {
+			Statement stmt = conn.createStatement();
+			if(stmt.executeUpdate("update art_piece set Artist = '" + artist + "' where ID_art = " + ID) == 1)
+            	return true;
+            else
+            	return false;
 		}
 		catch (Exception e) {
 			System.err.println("DB ERROR!");
@@ -115,23 +132,7 @@ public class OperaCreator implements Creator{
 		
 	}
 	
-	public boolean updateArtist(int ID, String artist ) { //method to modify Artist
-	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
-	    try {
-			Statement stmt = conn.createStatement();
-            stmt.executeUpdate("update art_piece set Artist='" + artist + "' where ID_art=" + ID);
-            return true;
-            
-		}
-		catch (Exception e) {
-			System.err.println("DB ERROR!");
-			System.err.println(e.getMessage());
-			return false;
-		}
-		
-	}
-	
-	public boolean updateStatus(int ID, String status ) { //method to modify Status
+	public boolean updateStatus(int ID, String status) { //method to modify Status
 	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
 	    try {
 			Statement stmt = conn.createStatement();
@@ -153,7 +154,7 @@ public class OperaCreator implements Creator{
 		
 	}
 	
-	public boolean updateType(int ID, String type ) { //method to modify Type
+	public boolean updateType(int ID, String type) { //method to modify Type
 	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
 	    try {
 			Statement stmt = conn.createStatement();
@@ -175,13 +176,14 @@ public class OperaCreator implements Creator{
 		
 	}
 	
-	public boolean updateRoom(int ID, int room ) { //method to modify room
+	public boolean updateRoom(int ID, int room) { //method to modify room
 	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
 	    try {
 			Statement stmt = conn.createStatement();
-            stmt.executeUpdate("update art_piece set Room='" + room + "' where ID_art=" + ID);
-            return true;
-            
+			if(stmt.executeUpdate("update art_piece set Room = " + room + " where ID_art = " + ID) == 1)
+            	return true;
+            else
+            	return false;
 		}
 		catch (Exception e) {
 			System.err.println("DB ERROR!");
@@ -190,7 +192,7 @@ public class OperaCreator implements Creator{
 		}
 	}
 	
-	public boolean updateMovement(int ID, String mov ) { //method to modify art movement
+	public boolean updateMovement(int ID, String mov) { //method to modify art movement
 	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
 	    try {
 			Statement stmt = conn.createStatement();
@@ -212,13 +214,14 @@ public class OperaCreator implements Creator{
 		
 	}
 	
-	public boolean updatePosition(int ID, int pos ) { //method to modify Position
+	public boolean updatePosition(int ID, int pos) { //method to modify Position
 	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
 	    try {
 			Statement stmt = conn.createStatement();
-            stmt.executeUpdate("update art_piece set Position=' " + pos + "' where ID_art=" + ID);
-            return true;
-            
+			if(stmt.executeUpdate("update art_piece set Position = " + pos + " where ID_art = " + ID) == 1)
+            	return true;
+            else
+            	return false;
 		}
 		catch (Exception e) {
 			System.err.println("DB ERROR!");
@@ -228,13 +231,14 @@ public class OperaCreator implements Creator{
 	 
 	}
 	
-	public boolean updateValue(int ID, float val ) { //method to modify Description
+	public boolean updateValue(int ID, float val) { //method to modify Description
 	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
 	    try {
 			Statement stmt = conn.createStatement();
-            stmt.executeUpdate("update art_piece set Value_Euro=' " + val + "' where ID_art=" + ID);
-            return true;
-            
+			if(stmt.executeUpdate("update art_piece set Value_Euro = " + val + " where ID_art = " + ID) == 1)
+            	return true;
+            else
+            	return false;
 		}
 		catch (Exception e) {
 			System.err.println("DB ERROR!");

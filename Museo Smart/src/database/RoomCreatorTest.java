@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 
 class RoomCreatorTest {
 
+	RoomCreator roomCreator = new RoomCreator();
+	
 	@BeforeEach
 	void setUp() throws Exception {
 	}
@@ -17,8 +19,11 @@ class RoomCreatorTest {
 	}
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void testCreateComponent() {
+		Component compA = roomCreator.createComponent(1);
+		assertNotNull(compA);
+		Component compB = roomCreator.createComponent(999);
+		assertNull(compB);
 	}
 
 }
