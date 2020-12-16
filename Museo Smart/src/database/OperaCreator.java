@@ -24,7 +24,7 @@ public class OperaCreator implements Creator{
 	        if(rs.next()) {								//if rs is not empty create opera
 	        	opera = new Opera(rs.getInt("ID_art"), 
 						rs.getString("Title"), 
-						rs.getString("Title"), 
+						rs.getString("Availability"), 
 						rs.getString("Artist"), 
 						rs.getString("Type"), 
 						rs.getInt("Room"), 
