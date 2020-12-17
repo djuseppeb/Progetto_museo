@@ -60,7 +60,7 @@ public class Manager {
 	}
 
 	//Returns Art pieces aviailable in a room
-	public static String getAvilableOpera(Opera art, int room){
+	public static String isAvilableOpera(Opera art, int room){
 		if((art.getStatus().equals("Disponibile"))&&(art.getRoom()==room)){
 			return "\n>"+art.getTitle();
 		} else
@@ -71,7 +71,14 @@ public class Manager {
 	public static String getAvilableOperaString(ArrayList<Opera> listaOpere, int room){
 		String listAvailable = "";
 		for(int i = 0; i<listaOpere.size(); i++)
-			listAvailable += getAvilableOpera(listaOpere.get(i), room);
+			listAvailable += isAvilableOpera(listaOpere.get(i), room);
 		return listAvailable;
+	}
+
+	//Return a String with ID, Title, Artist and availability
+	public static String getStringOpera(Opera opera){
+		String string="";
+		string ="ID: "+opera.getID()+" - "+ opera.getTitle()+" - "+opera.getArtist()+" - "+opera.getStatus();
+		return string;
 	}
 }
