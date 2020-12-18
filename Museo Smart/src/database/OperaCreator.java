@@ -2,7 +2,7 @@ package database;
 /*
  * Class OperaCreator use factory pattern and is a concrete product creator that allows to create Opera Object, add news piece of art in db and update existing piece of art
  * @author Albanese and Virruso
- * @version 1.3
+ * @version 1.5
  *
  */
 
@@ -70,12 +70,13 @@ public class OperaCreator implements Creator{
 		return opera;
 	}
 	
-	public boolean addComponent(int ID_art, String title, String artist, String status, String type, int room, String movement, String description, int position, float value) {	//function to add opera into DB
+	public boolean addComponent(String title, String artist, String status, String type, int room, String movement, String description, int position, float value) {	//function to add opera into DB
+		int id_art = this.idGenerator(); //generate ID automatically
 	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
 
 		try {
 			Statement stmt = conn.createStatement();
-            stmt.executeUpdate("INSERT INTO art_piece" + " VALUES ( " + ID_art + ", '"
+            stmt.executeUpdate("INSERT INTO art_piece" + " VALUES ( " + id_art + ", '"
             													+ title + "', '" 
             													+ artist + "', '" 
             													+ status + "', '" 
@@ -93,6 +94,26 @@ public class OperaCreator implements Creator{
 			System.err.println(e.getMessage());
 			return false;
 		}
+		
+	}
+	
+	private int idGenerator() { //generate id to add Opera
+		int count = 0;
+			try {
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery("SELECT ID_art FROM art_piece");
+				
+		        while(rs.next()) {		//count next id
+		        	count = rs.getInt("ID_art");
+		        }
+			}
+			catch (Exception e) {
+				System.err.println("DB ERROR!");
+				System.err.println(e.getMessage());
+			}
+			
+			return count + 1;
+		
 		
 	}
 	
