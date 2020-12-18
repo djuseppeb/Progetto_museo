@@ -49,8 +49,7 @@ public class Manager {
 				socialDistance ="Non rispettato!";
 		
 		
-		roomInfo = "Stanza "+ room.getID()+
-				"\nTemperatura: "+room.getTemp()+
+		roomInfo = "Temperatura: "+room.getTemp()+
 				"\nStato Impianto termico: "+termalStatus+
 				"\nNumero Persone: "+room.getPeople()+
 				"\nDistanziamento sociale "+socialDistance+
