@@ -70,21 +70,21 @@ public class OperaCreator implements Creator{
 		return opera;
 	}
 	
-	public boolean addComponent(Opera opera) {	//function to add opera into DB
+	public boolean addComponent(int ID_art, String title, String artist, String status, String type, int room, String movement, String description, int position, float value) {	//function to add opera into DB
 	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
 
 		try {
 			Statement stmt = conn.createStatement();
-            stmt.executeUpdate("INSERT INTO art_piece" + " VALUES ( " + opera.getID() + ", '"
-            													+ opera.getTitle() + "', '" 
-            													+ opera.getArtist() + "', '" 
-            													+ opera.getStatus() + "', '" 
-            													+ opera.getType() + "', " 
-            													+ opera.getRoom() + ", '" 
-            													+ opera.getMovement() + "', '" 
-            													+ opera.getDescription() + "', " 
-            													+ opera.getPosition() + ", " 
-            													+ opera.getValue() + ")" );
+            stmt.executeUpdate("INSERT INTO art_piece" + " VALUES ( " + ID_art + ", '"
+            													+ title + "', '" 
+            													+ artist + "', '" 
+            													+ status + "', '" 
+            													+ type + "', " 
+            													+ room + ", '" 
+            													+ movement + "', '" 
+            													+ description + "', " 
+            													+ position + ", " 
+            													+ value + ")" );
             return true;
             
 		}
