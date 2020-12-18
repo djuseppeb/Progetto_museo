@@ -75,15 +75,15 @@ public class OperaCreator implements Creator{
 
 		try {
 			Statement stmt = conn.createStatement();
-            stmt.executeUpdate("INSERT INTO art_piece VALUES (" + opera.getID() + ","
-            													+ opera.getTitle() + "," 
-            													+ opera.getArtist() + "," 
-            													+ opera.getStatus() + "," 
-            													+ opera.getType() + "," 
-            													+ opera.getRoom() + "," 
-            													+ opera.getMovement() + "," 
-            													+ opera.getDescription() + "," 
-            													+ opera.getPosition() + "," 
+            stmt.executeUpdate("INSERT INTO art_piece" + " VALUES ( " + opera.getID() + ", '"
+            													+ opera.getTitle() + "', '" 
+            													+ opera.getArtist() + "', '" 
+            													+ opera.getStatus() + "', '" 
+            													+ opera.getType() + "', " 
+            													+ opera.getRoom() + ", '" 
+            													+ opera.getMovement() + "', '" 
+            													+ opera.getDescription() + "', " 
+            													+ opera.getPosition() + ", " 
             													+ opera.getValue() + ")" );
             return true;
             
