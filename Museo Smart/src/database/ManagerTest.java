@@ -14,7 +14,7 @@ public class ManagerTest {
 		Room room = (Room) getter.createComponent(1);
 		String roomInfo = Manager.getRoomString(room);
 		//fail();
-		assertEquals(roomInfo, "Stanza 1\nTemperatura: 16.3\nStato Impianto termico: Acceso\nNumero Persone: 7\nDistanziamento sociale Rispettato\nStato luci: 6");
+		assertEquals(roomInfo, "Temperatura: 16.3\nStato Impianto termico: Acceso\nNumero Persone: 7\nDistanziamento sociale Rispettato\nStato luci: 6");
 	}
 	
 	@Test
