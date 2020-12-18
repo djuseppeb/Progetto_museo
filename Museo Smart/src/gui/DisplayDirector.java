@@ -1,5 +1,7 @@
 package gui;
 
+import java.util.ArrayList;
+
 public class DisplayDirector {
 	private DisplayBuilder b;
 	
@@ -11,7 +13,7 @@ public class DisplayDirector {
 		this.b = b;
 	}
 	
-	public void make (String title, String info, String... buttons) {
+	public void make (String title, ArrayList<String> info, String... buttons) {
 		b.reset();
 		b.createWindow(title);
 		b.createPanel(info);
