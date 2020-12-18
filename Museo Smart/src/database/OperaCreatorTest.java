@@ -9,11 +9,12 @@ import org.junit.jupiter.api.Test;
 class OperaCreatorTest {
 
 	Opera operaA = new Opera(16, "Titolo", "Artista", "Disponibile", "Quadro", 2, "Cubismo", "Descrizione", 3, 999.99f);
-	Opera operaB = new Opera(16, "Titolo", "Artista", "Venduto", "Quadro", 2, "Cubismo", "Descrizione", 3, 999.99f);
+	//Opera operaB = new Opera(16, "Titolo", "Artista", "Venduto", "Quadro", 2, "Cubismo", "Descrizione", 3, 999.99f);
 	Opera operaC = new Opera(17, "Titolo", "Artista", "Stato sbagliato", "Quadro", 2, "Cubismo", "Descrizione", 3, 999.99f);
 	Opera operaD = new Opera(18, "Titolo", "Artista", "In restauro", "Tipo sbagliato", 2, "Realismo", "Descrizione", 3, 999.99f);
 	Opera operaE = new Opera(19, "Titolo", "Artista", "Disponibile", "Quadro", 2, "Movimento sbagliato", "Descrizione", 3, 999.99f);
 	OperaCreator operaCreator = new OperaCreator();
+	int newId = 16;
 	
 	@BeforeEach
 	void setUp() throws Exception {
@@ -42,11 +43,18 @@ class OperaCreatorTest {
 
 	@Test
 	void testAddComponent() {
-		assertTrue(operaCreator.addComponent(operaA));
-		assertFalse(operaCreator.addComponent(operaB));
-		assertFalse(operaCreator.addComponent(operaC));
-		assertFalse(operaCreator.addComponent(operaD));
-		assertFalse(operaCreator.addComponent(operaE));
+		assertTrue(operaCreator.addComponent(operaA.getTitle(), operaA.getArtist(), operaA.getStatus(), operaA.getType(), operaA.getRoom(), operaA.getMovement(), operaA.getDescription(), operaA.getPosition(), operaA.getValue()));
+		//assertFalse(operaCreator.addComponent(operaB.getTitle(), operaB.getArtist(), operaB.getStatus(), operaB.getType(), operaB.getRoom(), operaB.getMovement(), operaB.getDescription(), operaB.getPosition(), operaB.getValue()));
+		assertFalse(operaCreator.addComponent(operaC.getTitle(), operaC.getArtist(), operaC.getStatus(), operaC.getType(), operaC.getRoom(), operaC.getMovement(), operaC.getDescription(), operaC.getPosition(), operaC.getValue()));
+		assertFalse(operaCreator.addComponent(operaD.getTitle(), operaD.getArtist(), operaD.getStatus(), operaD.getType(), operaD.getRoom(), operaD.getMovement(), operaD.getDescription(), operaD.getPosition(), operaD.getValue()));
+		assertFalse(operaCreator.addComponent(operaE.getTitle(), operaE.getArtist(), operaE.getStatus(), operaE.getType(), operaE.getRoom(), operaE.getMovement(), operaE.getDescription(), operaE.getPosition(), operaE.getValue()));
+	}
+	
+	@Test
+	void testIdGenerator() {
+		assertEquals(operaCreator.idGenerator(), newId);
+		assertNotEquals(operaCreator.idGenerator(), newId + 1);
+		assertNotEquals(operaCreator.idGenerator(), newId - 1);
 	}
 	
 	@Test
