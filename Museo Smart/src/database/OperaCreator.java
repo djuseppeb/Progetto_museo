@@ -153,6 +153,23 @@ public class OperaCreator implements Creator{
 		
 	}
 	
+	public boolean updateDescription(int ID, String descr) { //method to modify Description
+	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
+	    try {
+			Statement stmt = conn.createStatement();
+			if(stmt.executeUpdate("update art_piece set Description = '" + descr + "' where ID_art = " + ID) == 1)
+            	return true;
+            else
+            	return false;
+		}
+		catch (Exception e) {
+			System.err.println("DB ERROR!");
+			System.err.println(e.getMessage());
+			return false;
+		}
+		
+	}
+	
 	public boolean updateStatus(int ID, String status) { //method to modify Status
 	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
 	    try {
