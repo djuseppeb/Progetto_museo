@@ -2,7 +2,7 @@ package database;
 /*
  * Class OperaCreator use factory pattern and is a concrete product creator that allows to create Opera Object, add news piece of art in db and update existing piece of art
  * @author Albanese and Virruso
- * @version 1.5
+ * @version 1.7
  *
  */
 
@@ -218,7 +218,11 @@ public class OperaCreator implements Creator{
 	
 	public boolean updateRoom(int ID, int room) { //method to modify room
 	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
+	    RoomCreator checkroom = new RoomCreator();	//verify if room exist
+	    boolean check = checkroom.roomExist(room);
+	    
 	    try {
+	    	if(check == false)	return false;
 			Statement stmt = conn.createStatement();
 			if(stmt.executeUpdate("update art_piece set Room = " + room + " where ID_art = " + ID) == 1)
             	return true;

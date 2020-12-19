@@ -2,7 +2,7 @@ package database;
 /*
  * Class RoomCreator use factory pattern and is a concrete product creator that allows to create Room Object
  * @author Albanese and Virruso
- * @version 1.0
+ * @version 1.1
  *
  */
 import java.sql.Connection;
@@ -35,6 +35,23 @@ public class RoomCreator implements Creator{
 		}
 		
 		return room;
-	}	
+	}
+	
+	public boolean roomExist(int room) { //verify if room exist
+		boolean check = false;
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT ID_room FROM room");
+			
+	        while(rs.next()) {		//control next id
+	        	if(room == rs.getInt("ID_room")) check = true;
+	        }
+		}
+		catch (Exception e) {
+			System.err.println("DB ERROR!");
+			System.err.println(e.getMessage());
+		}
+		return check;
+	}
 }
 	
