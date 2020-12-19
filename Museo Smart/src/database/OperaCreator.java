@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class OperaCreator implements Creator{
     Connection conn = DbAccess.getAccess().conn;	 //get Db istance
-
+    
 	@Override
 	public Component createComponent(int ID) { //search Opera using ID
 	    Component opera = null;
@@ -172,9 +172,10 @@ public class OperaCreator implements Creator{
 	
 	public boolean updateStatus(int ID, String status) { //method to modify Status
 	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
+	    status = status.trim();
 	    try {
 			Statement stmt = conn.createStatement();
-			if(status == "Disponibile" || status == "In restauro" || status == "Venduto") {
+			if(status.equals("Disponibile") || status.equals("In restauro") || status.equals("Venduto")) {
             	stmt.executeUpdate("update art_piece set Availability='" + status + "' where ID_art=" + ID);
             	return true;
 			}
@@ -194,9 +195,10 @@ public class OperaCreator implements Creator{
 	
 	public boolean updateType(int ID, String type) { //method to modify Type
 	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
+	    type = type.trim();
 	    try {
 			Statement stmt = conn.createStatement();
-			if(type == "Quadro" || type == "Scultura" || type == "Mosaico" || type == "Manufatto" ) {
+			if(type.equals("Quadro") || type.equals("Scultura") || type.equals("Mosaico") || type.equals("Manufatto") ) {
 	            stmt.executeUpdate("update art_piece set Type='" + type + "' where ID_art=" + ID);
 	            return true;
 			}
@@ -232,9 +234,10 @@ public class OperaCreator implements Creator{
 	
 	public boolean updateMovement(int ID, String mov) { //method to modify art movement
 	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
+	    mov = mov.trim();
 	    try {
 			Statement stmt = conn.createStatement();
-			if(mov == "Astrattismo" || mov == "Cubismo" || mov == "Espressionismo" || mov == "Futurismo" || mov == "Realismo" || mov == "Arte rinascimentale" ) {
+			if(mov.equals("Astrattismo") || mov.equals("Cubismo") || mov.equals("Espressionismo") || mov.equals("Futurismo") || mov.equals("Realismo") || mov.equals("Arte rinascimentale") ) {
 	            stmt.executeUpdate("update art_piece set Art_movement='" + mov + "' where ID_art=" + ID);
 	            return true;
 			}
