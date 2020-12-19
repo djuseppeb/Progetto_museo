@@ -2,10 +2,12 @@ package gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import database.Manager;
@@ -43,12 +45,27 @@ public class EnhancedDisplay extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			JButton jb = (JButton)e.getSource();
 			if (jb.getText().equals("Visualizza Opera")) {
-				System.out.println(textField.getText());
-				
+								
 				// creare qua la schermata di visualizzazione opera
-				List<Opera> artworks = Manager.getArtList();
-				//for
-				
+				int chosenID = Integer.parseInt(textField.getText());
+				if (Manager.operaExists(chosenID)) {
+					//System.out.println(textField.getText());
+					
+					ArrayList<String> info = new ArrayList<>();
+					info.add("Opera");
+					info.add(textField.getText());
+					dd.make("Dettagli opera "+chosenID, info, "Salva modifiche");
+					fdb.getProduct();
+					
+				}
+				else {
+					JOptionPane.showMessageDialog(null,
+						    "L'ID inserito non corrisponde a nessuna opera.",
+						    "ID non valido",
+						    JOptionPane.WARNING_MESSAGE);
+
+				}
+					
 			}
 			else
 				dispose();
