@@ -80,4 +80,27 @@ public class Manager {
 		string ="ID: "+opera.getID()+" - "+ opera.getTitle()+" - "+opera.getArtist()+" - "+opera.getStatus();
 		return string;
 	}
+	
+	//Return true if an Artwork ID exists
+	public static boolean operaExists(int ID) {
+		List<Opera> listaOpere = Manager.getArtList();
+		boolean exists = false;
+		for (Opera op : listaOpere) {
+			if (op.getID() == ID) {
+				exists = true;
+				break;
+			}
+		}
+		return exists;
+	}
+	
+	//Return an Opera object by id
+	public static Opera getOperaByID(int ID) {
+		List<Opera> listaOpere = Manager.getArtList();
+		for (Opera op : listaOpere) {
+			if (op.getID() == ID)
+				return op;
+		}
+		return null;
+	}
 }
