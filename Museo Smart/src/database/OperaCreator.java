@@ -97,7 +97,7 @@ public class OperaCreator implements Creator{
 		
 	}
 	
-	private int idGenerator() { //generate id to add Opera
+	int idGenerator() { //generate id to add Opera
 		int count = 0;
 			try {
 				Statement stmt = conn.createStatement();
@@ -154,10 +154,18 @@ public class OperaCreator implements Creator{
 	}
 	
 	public boolean updateDescription(int ID, String descr) { //method to modify Description
+	    String formattedDescr = "";
+	    for (int i=0; i<descr.length(); i++) {
+	    	char c = descr.charAt(i);
+	    	if (c == '\'')
+	    		formattedDescr+="\\";
+	    	formattedDescr+=c;
+	    }
+	    
 	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
 	    try {
 			Statement stmt = conn.createStatement();
-			if(stmt.executeUpdate("update art_piece set Description = '" + descr + "' where ID_art = " + ID) == 1)
+			if(stmt.executeUpdate("update art_piece set Description = '" + formattedDescr + "' where ID_art = " + ID) == 1)
             	return true;
             else
             	return false;
@@ -219,7 +227,7 @@ public class OperaCreator implements Creator{
 	public boolean updateRoom(int ID, int room) { //method to modify room
 	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
 	    RoomCreator checkroom = new RoomCreator();	//verify if room exist
-	    boolean check = checkroom.getRoomExists(room);
+	    boolean check = checkroom.roomExist(room);
 	    
 	    try {
 	    	if(check == false)	return false;
