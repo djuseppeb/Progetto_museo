@@ -27,9 +27,8 @@ public class FormDisplayBuilder implements DisplayBuilder{
 	private JPanel centerPanel;
 	private JPanel bottomPanel;
 	private JButton[] buttons;
-	private JLabel label;
 	private ArrayList<JTextField> textFields;
-	private ArrayList<JTextArea> textAreas;
+	private JTextArea textArea;
 	private JScrollPane scrollPane;
 	
 	
@@ -45,16 +44,15 @@ public class FormDisplayBuilder implements DisplayBuilder{
 		this.centerPanel = new JPanel();
 		this.buttons = null;
 		this.scrollPane = new JScrollPane();
-		this.label = new JLabel();
 		this.textFields = new ArrayList<>();
-		this.textAreas = new ArrayList<>();
+		this.textArea = new JTextArea();
 	}
 
 	@Override
 	public void createWindow(String title) {
 		this.formDisplay= new FormDisplay (title);
 		this.formDisplay.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		this.formDisplay.setSize(650, 500);
+		this.formDisplay.setSize(650, 520);
 		this.formDisplay.setLocationRelativeTo(null);
 	}
 	
@@ -100,13 +98,11 @@ public class FormDisplayBuilder implements DisplayBuilder{
 			// make the panel for the text area (centerPanel)
 			this.centerPanel.setLayout(new GridLayout(0,1));
 			this.centerPanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
-			this.textAreas.add(new JTextArea());
-			this.textAreas.get(0).setLineWrap(true);
-			this.textAreas.get(0).setText(artwork.getDescription());
-			this.scrollPane.setViewportView(textAreas.get(0));
+			this.textArea.setLineWrap(true);
+			this.textArea.setText(artwork.getDescription());
+			this.scrollPane.setViewportView(this.textArea);
 			this.scrollPane.setBorder(BorderFactory.createTitledBorder("Descrizione"));
 			this.centerPanel.add(scrollPane, BorderLayout.CENTER);
-			
 			
 			// add the bottom panel to the container
 			c.add(bottomPanel, BorderLayout.SOUTH);
@@ -134,8 +130,9 @@ public class FormDisplayBuilder implements DisplayBuilder{
 	public FormDisplay getProduct () {
 		//return new Menu(this.panel, this.buttons);
 		this.formDisplay.setButtons(this.buttons);
-		this.formDisplay.setTextFields (this.textFields);
-		this.formDisplay.setTextAreas (this.textAreas);
+		this.formDisplay.setTextFields(this.textFields);
+		this.formDisplay.setScrollPane(this.scrollPane);
+		this.formDisplay.setTextArea(this.textArea);
 		this.formDisplay.setVisible(true);
 		return this.formDisplay;
 	}
