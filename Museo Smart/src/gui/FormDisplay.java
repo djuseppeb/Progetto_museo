@@ -90,30 +90,6 @@ public class FormDisplay  extends JFrame {
 							errors+="- Posizione nella stanza\n";
 					}
 				}
-				
-				/*
-				for (JTextField textField : textFields) {
-					Border border = textField.getBorder();
-					// make sure to update the right field in the database
-					if (((TitledBorder)border).getTitle().equals("Titolo"))
-						oC.updateTitle(artworkID, textField.getText());
-					
-					else if (((TitledBorder)border).getTitle().equals("Autore"))
-						oC.updateArtist(artworkID, textField.getText());
-							
-					else if (((TitledBorder)border).getTitle().equals("Tipo"))
-						oC.updateType(artworkID, textField.getText());
-							
-					else if (((TitledBorder)border).getTitle().equals("Corrente artistica"))
-						oC.updateMovement(artworkID, textField.getText());
-						
-					else if (((TitledBorder)border).getTitle().equals("Stanza"))
-						oC.updateRoom(artworkID, Integer.parseInt(textField.getText()));
-							
-					else if (((TitledBorder)border).getTitle().equals("Posizione nella stanza"))
-						oC.updatePosition(artworkID, Integer.parseInt(textField.getText()));
-							
-				}*/
 								
 				Border border = scrollPane.getBorder();
 				// make sure to update the right field in the database
@@ -132,9 +108,6 @@ public class FormDisplay  extends JFrame {
 						    "Tutti i campi sono stati aggiornati correttamente!",
 						    "Salvataggio completato!",
 						    JOptionPane.INFORMATION_MESSAGE);
-					
-				
-				
 			}
 			else
 				dispose();
