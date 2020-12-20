@@ -37,7 +37,7 @@ public class RoomCreator implements Creator{
 		return room;
 	}
 	
-	public boolean roomExist(int room) { //verify if room exist
+	public boolean getRoomExists(int room) { //verify if room exist
 		boolean check = false;
 		try {
 			Statement stmt = conn.createStatement();

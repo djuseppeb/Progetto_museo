@@ -219,7 +219,7 @@ public class OperaCreator implements Creator{
 	public boolean updateRoom(int ID, int room) { //method to modify room
 	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
 	    RoomCreator checkroom = new RoomCreator();	//verify if room exist
-	    boolean check = checkroom.roomExist(room);
+	    boolean check = checkroom.getRoomExists(room);
 	    
 	    try {
 	    	if(check == false)	return false;

@@ -25,5 +25,13 @@ class RoomCreatorTest {
 		Component compB = roomCreator.createComponent(999);
 		assertNull(compB);
 	}
+	
+	@Test
+	void testGetRoomExists() {
+		assertTrue(roomCreator.getRoomExists(1));
+		assertTrue(roomCreator.getRoomExists(4));
+		assertFalse(roomCreator.getRoomExists(0));
+		assertFalse(roomCreator.getRoomExists(30));
+	}
 
 }
