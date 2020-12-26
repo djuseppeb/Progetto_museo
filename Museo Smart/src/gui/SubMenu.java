@@ -18,7 +18,7 @@ public class SubMenu extends JFrame{
 	private JButton[] buttons;
 	private MyActionListener l = new MyActionListener();
 	private SimpleDisplayBuilder sdb = new SimpleDisplayBuilder();   // create a SipleDisplayBuilder
-	private DisplayDirector d = new DisplayDirector(sdb);        // create a DisplayDirector
+	private DisplayDirector dd = new DisplayDirector(sdb);        // create a DisplayDirector
 
 
 	public SubMenu (String title) {
@@ -32,6 +32,9 @@ public class SubMenu extends JFrame{
 			this.buttons[i].addActionListener(this.l);
 	}
 
+	public JButton[] getButtons() {
+		return this.buttons;
+	}
 	
 	class MyActionListener implements ActionListener {
 
@@ -48,7 +51,7 @@ public class SubMenu extends JFrame{
                 roomInfo.add("\n\n----------------------------------\nOpere Disponibili:");
                 List<Opera> artworks = Manager.getArtList();
                 roomInfo.add(Manager.getAvilableOperaString((ArrayList<Opera>) artworks, i));
-                d.make("Stanza "+i, roomInfo);
+                dd.make("Stanza "+i, roomInfo);
                 sdb.getProduct();
                
             }
@@ -59,7 +62,7 @@ public class SubMenu extends JFrame{
                 roomInfo.add("\n\n----------------------------------\nOpere Disponibili:");
                 List<Opera> artworks = Manager.getArtList();
                 roomInfo.add(Manager.getAvilableOperaString((ArrayList<Opera>) artworks, i));
-                d.make("Stanza "+i, roomInfo);
+                dd.make("Stanza "+i, roomInfo);
                 sdb.getProduct();
             }
             else if (jb.getText().equals("Stanza 3")) {
@@ -69,7 +72,7 @@ public class SubMenu extends JFrame{
                 roomInfo.add("\n\n----------------------------------\nOpere Disponibili:");
                 List<Opera> artworks = Manager.getArtList();
                 roomInfo.add(Manager.getAvilableOperaString((ArrayList<Opera>) artworks, i));
-                d.make("Stanza "+i, roomInfo);
+                dd.make("Stanza "+i, roomInfo);
                 sdb.getProduct();
             }
             else if (jb.getText().equals("Stanza 4")) {
@@ -79,7 +82,7 @@ public class SubMenu extends JFrame{
                 roomInfo.add("\n\n----------------------------------\nOpere Disponibili:");
                 List<Opera> artworks = Manager.getArtList();
                 roomInfo.add(Manager.getAvilableOperaString((ArrayList<Opera>) artworks, i));
-                d.make("Stanza "+i, roomInfo);
+                dd.make("Stanza "+i, roomInfo);
                 sdb.getProduct();
             }
 //            else if (jb.getText().equals("Visualizza opere")) {

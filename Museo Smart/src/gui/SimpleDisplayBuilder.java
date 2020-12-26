@@ -98,4 +98,32 @@ public class SimpleDisplayBuilder implements DisplayBuilder{
 		this.simpleDisplay.setVisible(true);
 		return this.simpleDisplay;
 	}
+	
+	public Container getC () {
+		return this.c;
+	}
+	
+	public JPanel getTopPanel () {
+		return this.topPanel;
+	}
+	
+	public JPanel getBottomPanel () {
+		return this.bottomPanel;
+	}
+	
+	public JButton[] getButtons () {
+		return this.buttons;
+	}
+	
+	public JTextArea getTextArea () {
+		return this.textArea;
+	}
+	
+	public JScrollPane getScrollPane () {
+		return this.scrollPane;
+	}
+	
+	public SimpleDisplay getSimpleDisplay () {
+		return this.simpleDisplay;
+	}
 }

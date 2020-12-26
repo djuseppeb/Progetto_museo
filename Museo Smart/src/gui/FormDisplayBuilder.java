@@ -136,4 +136,40 @@ public class FormDisplayBuilder implements DisplayBuilder{
 		this.formDisplay.setVisible(true);
 		return this.formDisplay;
 	}
+	
+	public Container getC () {
+		return this.c;
+	}
+	
+	public JPanel getTopPanel () {
+		return this.topPanel;
+	}
+	
+	public JPanel getCenterPanel () {
+		return this.centerPanel;
+	}
+	
+	public JPanel getBottomPanel () {
+		return this.bottomPanel;
+	}
+	
+	public JButton[] getButtons () {
+		return this.buttons;
+	}
+	
+	public JTextArea getTextArea () {
+		return this.textArea;
+	}
+	
+	public ArrayList<JTextField> getTextFields () {
+		return this.textFields;
+	}
+	
+	public JScrollPane getScrollPane () {
+		return this.scrollPane;
+	}
+	
+	public FormDisplay getFormDisplay () {
+		return this.formDisplay;
+	}
 }

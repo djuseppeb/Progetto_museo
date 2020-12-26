@@ -37,7 +37,11 @@ public class MainMenu extends JFrame {
 			this.buttons[i].addActionListener(this.l);
 	}
 
+	public JButton[] getButtons() {
+		return this.buttons;
+	}
 	
+
 	
 	class MyActionListener implements ActionListener {
 
@@ -58,7 +62,7 @@ public class MainMenu extends JFrame {
 					artworks.add(Manager.getStringOpera(o));
 					artworks.add("\n");
 				}
-				dd.make("Opere", artworks, "Visualizza Opera");
+				dd.make("Opere", artworks, "Visualizza");
 				edb.getProduct();
 			}
 			else
@@ -67,5 +71,7 @@ public class MainMenu extends JFrame {
 	
 	}
 
+
+	
 }
 

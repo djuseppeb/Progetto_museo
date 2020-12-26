@@ -37,6 +37,14 @@ public class EnhancedDisplay extends JFrame{
 	public void setTextField (JTextField textField) {
 		this.textField=textField;
 	}
+	
+	public JButton[] getButtons() {
+		return this.buttons;
+	}
+	
+	public JTextField getTextField() {
+		return this.textField;
+	}
 
 	
 	class MyActionListener implements ActionListener {
@@ -44,7 +52,7 @@ public class EnhancedDisplay extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			JButton jb = (JButton)e.getSource();
-			if (jb.getText().equals("Visualizza Opera")) {
+			if (jb.getText().equals("Visualizza")) {
 								
 				// creare qua la schermata di visualizzazione opera
 				int chosenID = Integer.parseInt(textField.getText());

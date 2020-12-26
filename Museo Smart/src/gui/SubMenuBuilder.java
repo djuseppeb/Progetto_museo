@@ -93,4 +93,24 @@ public class SubMenuBuilder implements MenuBuilder{
 		return this.subMenu;
 	}
 
+	public Container getC () {
+		return this.c;
+	}
+	
+	public JPanel getTopPanel () {
+		return this.topPanel;
+	}
+	
+	public JPanel getBottomPanel () {
+		return this.bottomPanel;
+	}
+	
+	public JButton[] getButtons () {
+		return this.buttons;
+	}
+	
+	public SubMenu getSubMenu () {
+		return this.subMenu;
+	}
+	
 }

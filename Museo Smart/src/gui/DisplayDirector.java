@@ -13,6 +13,10 @@ public class DisplayDirector {
 		this.b = b;
 	}
 	
+	public DisplayBuilder getDisplayBuilder() {
+		return this.b;
+	}
+	
 	public void make (String title, ArrayList<String> info, String... buttons) {
 		b.reset();
 		b.createWindow(title);

@@ -35,7 +35,7 @@ public class FormDisplay  extends JFrame {
 			this.buttons[i].addActionListener(this.l);
 	}
 	
-	
+		
 	public void setTextFields (ArrayList<JTextField> textFields) {
 		this.textFields = textFields;
 	}
@@ -50,6 +50,23 @@ public class FormDisplay  extends JFrame {
 		this.textArea = textArea;
 	}
 	
+	public JButton[] getButtons() {
+		return this.buttons;
+	}
+	
+	public ArrayList<JTextField> getTextFields () {
+		return this.textFields;
+	}
+	
+	
+	public JScrollPane getScrollPane () {
+		return this.scrollPane;
+	}
+	
+	
+	public JTextArea getTextArea () {
+		return this.textArea;
+	}	
 	
 	
 	class MyActionListener implements ActionListener {

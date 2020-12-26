@@ -215,5 +215,25 @@ public class MainMenuBuilder implements MenuBuilder{
 		this.mainMenu.setVisible(true);
 		return this.mainMenu;
 	}
+	
+	public Container getC () {
+		return this.c;
+	}
+	
+	public JPanel getTopPanel () {
+		return this.topPanel;
+	}
+	
+	public JPanel getBottomPanel () {
+		return this.bottomPanel;
+	}
+	
+	public JButton[] getButtons () {
+		return this.buttons;
+	}
+	
+	public MainMenu getMainMenu () {
+		return this.mainMenu;
+	}
 
 }

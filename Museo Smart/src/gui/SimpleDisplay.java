@@ -26,6 +26,9 @@ public class SimpleDisplay extends JFrame{
 			this.buttons[i].addActionListener(this.l);
 	}
 
+	public JButton[] getButtons() {
+		return this.buttons;
+	}
 	
 	class MyActionListener implements ActionListener {
 

@@ -86,7 +86,7 @@ public class EnhancedDisplayBuilder implements DisplayBuilder{
         this.c.add(this.bottomPanel, BorderLayout.SOUTH);
        // this.bottomPanel.setLayout(new GridLayout(0,1));
         this.bottomPanel.setBorder(BorderFactory.createEmptyBorder(20, 10, 10, 10));
-        this.textField.setBorder(BorderFactory.createTitledBorder("Digita ID Opera"));
+        this.textField.setBorder(BorderFactory.createTitledBorder("Digita ID"));
         this.textField.setPreferredSize(new Dimension(130,50));
         this.bottomPanel.add(this.textField);
     }
@@ -136,6 +136,38 @@ public class EnhancedDisplayBuilder implements DisplayBuilder{
 		this.enhancedDisplay.setButtons(this.buttons);
 		this.enhancedDisplay.setTextField(this.textField);
 		this.enhancedDisplay.setVisible(true);
+		return this.enhancedDisplay;
+	}
+	
+	public Container getC () {
+		return this.c;
+	}
+	
+	public JPanel getTopPanel () {
+		return this.topPanel;
+	}
+	
+	public JPanel getBottomPanel () {
+		return this.bottomPanel;
+	}
+	
+	public JButton[] getButtons () {
+		return this.buttons;
+	}
+	
+	public JTextArea getTextArea () {
+		return this.textArea;
+	}
+	
+	public JTextField getTextField () {
+		return this.textField;
+	}
+	
+	public JScrollPane getScrollPane () {
+		return this.scrollPane;
+	}
+	
+	public EnhancedDisplay getEnhancedDisplay () {
 		return this.enhancedDisplay;
 	}
 
