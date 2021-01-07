@@ -31,7 +31,8 @@ public class OperaCreator implements Creator{
 						rs.getString("Art_movement"), 
 						rs.getString("Description"),
 						rs.getInt("Position"),
-						rs.getFloat("Value_Euro")); 
+						rs.getFloat("Value_Euro"),
+						rs.getString("Img_URL"));
 	        }
 		}
 		catch (Exception e) {
@@ -59,7 +60,8 @@ public class OperaCreator implements Creator{
 						rs.getString("Art_movement"), 
 						rs.getString("Description"),
 						rs.getInt("Position"),
-						rs.getFloat("Value_Euro")); 
+						rs.getFloat("Value_Euro"),
+	        			rs.getString("Img_URL"));
 	        }
 		}
 		catch (Exception e) {

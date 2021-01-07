@@ -18,8 +18,9 @@ public class Opera implements Component {
 	private String description;
 	private int position;
 	private float value;
+	private String img;
 	
-	public Opera(int ID_art, String title, String artist, String status, String type, int room, String movement, String description, int position, float value) {
+	public Opera(int ID_art, String title, String artist, String status, String type, int room, String movement, String description, int position, float value, String img) {
 		this.ID_art = ID_art;
 		this.title = title;
 		this.artist = artist;
@@ -30,6 +31,7 @@ public class Opera implements Component {
 		this.description = description;
 		this.position = position;
 		this.value = value;
+		this.img = img;
 	}
 	
 	//get methods to get private values
@@ -64,6 +66,9 @@ public class Opera implements Component {
 	}
 	public float getValue() {
 		return this.value;
+	}
+	public String getImg() {
+		return this.img;
 	}
 			
 }
