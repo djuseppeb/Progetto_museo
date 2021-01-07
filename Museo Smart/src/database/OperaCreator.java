@@ -302,4 +302,19 @@ public class OperaCreator implements Creator{
 		}
 	 
 	}
+		public boolean updateUrl(int ID, String url) {	//function to modify Url
+	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
+	    try {
+			Statement stmt = conn.createStatement();
+            if(stmt.executeUpdate("update art_piece set Img_URL = '" + url + "' where ID_art = " + ID) == 1)
+            	return true;
+            else
+            	return false;
+		}
+		catch (Exception e) {
+			System.err.println("DB ERROR!");
+			System.err.println(e.getMessage());
+			return false;
+		}
+	}
 }
