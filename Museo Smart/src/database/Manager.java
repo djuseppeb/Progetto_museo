@@ -1,6 +1,8 @@
 package database;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Manager {
@@ -58,7 +60,7 @@ public class Manager {
 		return roomInfo;
 	}
 
-	//Returns Art pieces aviailable in a room
+	//Returns Art pieces available in a room
 	public static String isAvilableOpera(Opera art, int room){
 		if((art.getStatus().equals("Disponibile"))&&(art.getRoom()==room)){
 			return "\n>"+art.getTitle();
@@ -102,5 +104,39 @@ public class Manager {
 				return op;
 		}
 		return null;
+	}
+	
+	//Return the incoming artwork list
+	public static List<Opera> getIncomingOpera() {
+		List<Opera> listaOpere = Manager.getArtList();
+		List<Opera> incomingArtworks = new ArrayList<>();
+		for (Opera op : listaOpere) {
+			if (op.getStatus().equals("In arrivo"))
+				incomingArtworks.add(op);
+		}
+		return incomingArtworks;
+	}
+	
+	//Returns the Artwork List but in alphabetic order, positive values means ascending order, negative values means descending order, 0 means default order: ascending order
+	public static List<Opera> getSortedArtList(int order) 
+	{	
+		List<Opera> list = Manager.getArtList(); //Creating art list
+        
+		Comparator<Opera> compareByTitle = (Opera operaX, Opera operaY) -> operaX.getTitle().compareTo( operaY.getTitle() ); //Creating Custom Comparator
+		
+		if(order >= 1)
+		{
+			Collections.sort(list, compareByTitle); //Ascending order
+		}
+		else if(order <= -1)
+		{
+			Collections.sort(list, compareByTitle.reversed() ); //Descending order
+		}
+		else
+		{
+			Collections.sort(list, compareByTitle); //Default order: Ascending order
+		}
+		
+		return list;
 	}
 }
