@@ -33,4 +33,36 @@ public class ManagerTest {
 		String operaString = Manager.getStringOpera(opera);
 		assertEquals(operaString, "ID: 2 - Ultima Cena - Leonardo Da Vinci - In restauro");
 	}
+	
+	@Test
+	public void getSortedArtListTest()
+	{
+		int checker = 0; 
+		
+		List<Opera> listA = Manager.getSortedArtList(1); //Ascending order (by title) art list
+		
+		for(Opera opera : listA)
+		{
+            if(opera.getID() == 6) //Checking if the first artpiece in the sorted list has ID 6 (Arrangiamento in grigio e nero, ritratto n. 1)
+            {
+            	checker++;
+            }
+            
+            break; //No need to check anything else in the sorted list
+        }
+		
+		List<Opera> listB = Manager.getSortedArtList(-1); //Descending order (by title) art list
+		
+		for(Opera opera : listB) 
+		{
+            if(opera.getID() == 2) //Checking if the first artpiece in the sorted list has ID 2 (Ultima Cena)
+            {
+            	checker++;
+            }
+            
+            break; //No need to check anything else in the sorted list
+        }
+		
+		assertEquals(2, checker);
+	}
 }
