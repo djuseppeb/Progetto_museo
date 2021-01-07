@@ -65,4 +65,14 @@ public class ManagerTest {
 		
 		assertEquals(2, checker);
 	}
+	@Test
+	public void getNumOfVisitorsTest() {
+		Integer n1 = 0;
+		Integer	n2 = 0;
+		List<Room> rooms = manager.getRoomList();
+		for(int i = 0; i < rooms.size(); i++)	n1 = n1 + rooms.get(i).getPeople();
+		n2 = manager.numOfPeople();
+		assertNotNull(n1);
+		assertEquals(n1, n2);
+		}
 }
