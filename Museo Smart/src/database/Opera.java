@@ -1,4 +1,4 @@
-package database;
+package it.gruppo5.museosmartapp.model;
 /*
  * Class Opera use factory pattern and is a concrete product that contain data from art_piece table in db.
  * @author Albanese and Virruso

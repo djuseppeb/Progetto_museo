@@ -1,4 +1,4 @@
-package database;
+package it.gruppo5.museosmartapp.model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,11 +8,11 @@ import org.junit.jupiter.api.Test;
 
 class OperaCreatorTest {
 
-	Opera operaA = new Opera(16, "Titolo", "Artista", "Disponibile", "Quadro", 2, "Cubismo", "Descrizione", 3, 999.99f);
-	//Opera operaB = new Opera(16, "Titolo", "Artista", "Venduto", "Quadro", 2, "Cubismo", "Descrizione", 3, 999.99f);
-	Opera operaC = new Opera(17, "Titolo", "Artista", "Stato sbagliato", "Quadro", 2, "Cubismo", "Descrizione", 3, 999.99f);
-	Opera operaD = new Opera(18, "Titolo", "Artista", "In restauro", "Tipo sbagliato", 2, "Realismo", "Descrizione", 3, 999.99f);
-	Opera operaE = new Opera(19, "Titolo", "Artista", "Disponibile", "Quadro", 2, "Movimento sbagliato", "Descrizione", 3, 999.99f);
+	Opera operaA = new Opera(16, "Titolo", "Artista", "Disponibile", "Quadro", 2, "Cubismo", "Descrizione", 3, 999.99f, "url");
+	//Opera operaB = new Opera(16, "Titolo", "Artista", "Venduto", "Quadro", 2, "Cubismo", "Descrizione", 3, 999.99f,);
+	Opera operaC = new Opera(17, "Titolo", "Artista", "Stato sbagliato", "Quadro", 2, "Cubismo", "Descrizione", 3, 999.99f, "url");
+	Opera operaD = new Opera(18, "Titolo", "Artista", "In restauro", "Tipo sbagliato", 2, "Realismo", "Descrizione", 3, 999.99f, "url");
+	Opera operaE = new Opera(19, "Titolo", "Artista", "Disponibile", "Quadro", 2, "Movimento sbagliato", "Descrizione", 3, 999.99f, "url");
 	OperaCreator operaCreator = new OperaCreator();
 	int newId = 16;
 	
@@ -43,11 +43,11 @@ class OperaCreatorTest {
 
 	@Test
 	void testAddComponent() {
-		assertTrue(operaCreator.addComponent(operaA.getTitle(), operaA.getArtist(), operaA.getStatus(), operaA.getType(), operaA.getRoom(), operaA.getMovement(), operaA.getDescription(), operaA.getPosition(), operaA.getValue()));
+		assertTrue(operaCreator.addComponent(operaA.getTitle(), operaA.getArtist(), operaA.getStatus(), operaA.getType(), operaA.getRoom(), operaA.getMovement(), operaA.getDescription(), operaA.getPosition(), operaA.getValue(), operaA.getImg()));
 		//assertFalse(operaCreator.addComponent(operaB.getTitle(), operaB.getArtist(), operaB.getStatus(), operaB.getType(), operaB.getRoom(), operaB.getMovement(), operaB.getDescription(), operaB.getPosition(), operaB.getValue()));
-		assertFalse(operaCreator.addComponent(operaC.getTitle(), operaC.getArtist(), operaC.getStatus(), operaC.getType(), operaC.getRoom(), operaC.getMovement(), operaC.getDescription(), operaC.getPosition(), operaC.getValue()));
-		assertFalse(operaCreator.addComponent(operaD.getTitle(), operaD.getArtist(), operaD.getStatus(), operaD.getType(), operaD.getRoom(), operaD.getMovement(), operaD.getDescription(), operaD.getPosition(), operaD.getValue()));
-		assertFalse(operaCreator.addComponent(operaE.getTitle(), operaE.getArtist(), operaE.getStatus(), operaE.getType(), operaE.getRoom(), operaE.getMovement(), operaE.getDescription(), operaE.getPosition(), operaE.getValue()));
+		assertFalse(operaCreator.addComponent(operaC.getTitle(), operaC.getArtist(), operaC.getStatus(), operaC.getType(), operaC.getRoom(), operaC.getMovement(), operaC.getDescription(), operaC.getPosition(), operaC.getValue(), operaC.getImg()));
+		assertFalse(operaCreator.addComponent(operaD.getTitle(), operaD.getArtist(), operaD.getStatus(), operaD.getType(), operaD.getRoom(), operaD.getMovement(), operaD.getDescription(), operaD.getPosition(), operaD.getValue(), operaD.getImg()));
+		assertFalse(operaCreator.addComponent(operaE.getTitle(), operaE.getArtist(), operaE.getStatus(), operaE.getType(), operaE.getRoom(), operaE.getMovement(), operaE.getDescription(), operaE.getPosition(), operaE.getValue(), operaE.getImg()));
 	}
 	
 	@Test
@@ -105,4 +105,9 @@ class OperaCreatorTest {
 		assertFalse(operaCreator.updateValue(99, 100.0f));
 	}
 	
+	@Test
+	void testUpdateImg() {
+		assertTrue(operaCreator.updateImg(1, "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/235px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg"));
+		assertFalse(operaCreator.updateImg(99, "urlprova"));
+	}
 }
