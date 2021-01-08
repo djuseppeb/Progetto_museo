@@ -70,8 +70,8 @@
   </div>
   <div class="w3-row-padding w3-grayscale">
     <div th:each="artwork : ${artworks}" class="w3-col l3 m6 w3-margin-bottom">
-      <img th:src="@{${artwork.img}}" alt="John" style="width:100%">
-      <h3 th:text="${artwork.title}"></h3>
+      <a th:href="@{/artwork(ID=${artwork.ID})}" title="Visualizza i dettagli"><img th:src="@{${artwork.img}}" alt="John" style="width:100%"></a>
+      <a th:href="@{/artwork(ID=${artwork.ID})}" title="Visualizza i dettagli" style="text-decoration: none"><h3 th:text="${artwork.title}"></h3></a>
       <p class="w3-border-bottom w3-border-light-grey w3-padding-10" th:text="${artwork.artist}"></p>
       <p class="w3-opacity">In arrivo!</p>
     </div>
