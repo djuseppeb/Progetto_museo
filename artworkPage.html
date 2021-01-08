@@ -47,9 +47,18 @@ h1, h2, h3, h4, h5, h6 {
 
     <div  class="w3-col m6 w3-padding-large">
       <h1 th:text="${artwork.title}" class="w3-center"></h1><br>
-      <h5 th:text="${artwork.movement}" class="w3-center"></h5>
+      
+      <h5 style="margin-top:-25px;" th:text="${artwork.movement}" class="w3-center"></h5>
       <p th:text="${artwork.description}" class="w3-large"><span class="w3-tag w3-light-grey"></span></p>
-  
+	 <p style="margin-bottom:-34px; " align = left> Autore : </p>
+       <h6 th:text="${artwork.artist}" class="w3-center"></h6>
+       
+        <p style="margin-bottom:-34px; " align = left> Tipologia : </p>
+       <h6 th:text="${artwork.type}" class="w3-center"></h6>
+       
+       	 <p style="margin-bottom:-34px; " align = left> Stanza : </p>
+       <h6 th:text="${artwork.room}" class="w3-center"></h6>
+       
     </div>
   </div>
   
