@@ -13,8 +13,7 @@ import it.gruppo5.smartmuseumwapp.database.*;
 @Service
 public class Manager {
 	
-	@Autowired
-	Manager manager;
+		
 	//Returns ArrayList with Opera objects
 	public  List<Opera> getArtList(){
 		ArrayList<Opera> lista = new ArrayList<>();
@@ -93,6 +92,7 @@ public class Manager {
 	
 	//Return true if an Artwork ID exists
 	public  boolean operaExists(int ID) {
+		Manager manager = new Manager();
 		List<Opera> listaOpere = manager.getArtList();
 		boolean exists = false;
 		for (Opera op : listaOpere) {
@@ -106,6 +106,7 @@ public class Manager {
 	
 	//Return an Opera object by id
 	public  Opera getOperaByID(int ID) {
+		Manager manager = new Manager();
 		List<Opera> listaOpere = manager.getArtList();
 		for (Opera op : listaOpere) {
 			if (op.getID() == ID)
@@ -116,6 +117,7 @@ public class Manager {
 	
 	//Return the incoming artwork list
 	public  List<Opera> getIncomingOpera() {
+		Manager manager = new Manager();
 		List<Opera> listaOpere = manager.getArtList();
 		List<Opera> incomingArtworks = new ArrayList<>();
 		for (Opera op : listaOpere) {
@@ -128,7 +130,10 @@ public class Manager {
 	//Returns the Artwork List but in alphabetic order, positive values means ascending order, negative values means descending order, 0 means default order: ascending order
 	public  List<Opera> getSortedArtList(int order) 
 	{	
-		List<Opera> list = manager.getArtList(); //Creating art list
+		Manager manager = new Manager();
+		ArrayList<Opera> list = new ArrayList<>();
+		list = (ArrayList<Opera>) manager.getArtList(); //Creating art list
+		
         
 		Comparator<Opera> compareByTitle = (Opera operaX, Opera operaY) -> operaX.getTitle().compareTo( operaY.getTitle() ); //Creating Custom Comparator
 		
@@ -151,6 +156,7 @@ public class Manager {
 	//Returns the amount of people in the whole museum
 	public int getNumOfVisitors() 
 	{
+		Manager manager = new Manager();
 		int np = 0; //count people number
 		List<Room> rooms = manager.getRoomList();
 		for(int i = 0; i < rooms.size(); i++)	np = np + rooms.get(i).getPeople();
