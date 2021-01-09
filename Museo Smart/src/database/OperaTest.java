@@ -1,4 +1,4 @@
-package database;
+package it.gruppo5.museosmartapp.model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 class OperaTest {
 
-	Opera opera = new Opera(1, "Titolo", "Artista", "Stato", "Tipo", 2, "Movimento", "Descrizione", 3, 999.99f);
+	Opera opera = new Opera(1, "Titolo", "Artista", "Stato", "Tipo", 2, "Movimento", "Descrizione", 3, 999.99f, "www.urlprova.it");
 	
 	@BeforeEach
 	void setUp() throws Exception {
@@ -66,5 +66,9 @@ class OperaTest {
 	@Test
 	void testGetValue() {
 		assertEquals(opera.getValue(), 999.99f);
+	}
+	@Test
+	void testGetImg() {
+		assertEquals(opera.getImg(), "www.urlprova.it");
 	}
 }
