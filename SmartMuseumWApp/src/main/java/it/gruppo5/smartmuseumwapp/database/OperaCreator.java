@@ -1,4 +1,4 @@
-package it.gruppo5.smartmuseumwapp.database;
+package it.gruppo5.museosmartapp.model;
 /*
  * Class OperaCreator use factory pattern and is a concrete product creator that allows to create Opera Object, add news piece of art in db and update existing piece of art
  * @author Albanese and Virruso
@@ -72,7 +72,7 @@ public class OperaCreator implements Creator{
 		return opera;
 	}
 	
-	public boolean addComponent(String title, String artist, String status, String type, int room, String movement, String description, int position, float value) {	//function to add opera into DB
+	public boolean addComponent(String title, String artist, String status, String type, int room, String movement, String description, int position, float value, String img) {	//function to add opera into DB
 		int id_art = this.idGenerator(); //generate ID automatically
 	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
 
@@ -87,7 +87,8 @@ public class OperaCreator implements Creator{
             													+ movement + "', '" 
             													+ description + "', " 
             													+ position + ", " 
-            													+ value + ")" );
+            													+ value + ", "
+            													+ img + ")" );
             return true;
             
 		}
@@ -302,4 +303,24 @@ public class OperaCreator implements Creator{
 		}
 	 
 	}
+	
+	public boolean updateImg(int ID, String url) { //method to modify url
+	    Connection conn = DbAccess.getAccess().conn;	 //get Db istance
+	    try {
+			Statement stmt = conn.createStatement();
+			if(stmt.executeUpdate("update art_piece set Img_URL = '" + url + "' where ID_art = " + ID) == 1)
+            	return true;
+            else
+            	return false;
+		}
+		catch (Exception e) {
+			System.err.println("DB ERROR!");
+			System.err.println(e.getMessage());
+			return false;
+		}
+		
+	}
+	
+
+	
 }
