@@ -71,6 +71,14 @@ public class WAppController {
 		return "artworkPage";
 	}
 	
+	@RequestMapping("/coupon")
+	public String getCupon(Model model){
+		int n = 0;
+		n++;
+		model.addAttribute("ticket", n);
+		return "couponPage";
+	}
+	
 	@RequestMapping("/gallery")
 	public String getGalleryPage () {
 		
