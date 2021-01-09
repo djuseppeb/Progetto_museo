@@ -1,4 +1,4 @@
-package it.gruppo5.museosmartapp.model;
+package it.gruppo5.smartmuseumwapp.database;
 /*
  * Class OperaCreator use factory pattern and is a concrete product creator that allows to create Opera Object, add news piece of art in db and update existing piece of art
  * @author Albanese and Virruso
@@ -87,8 +87,8 @@ public class OperaCreator implements Creator{
             													+ movement + "', '" 
             													+ description + "', " 
             													+ position + ", " 
-            													+ value + ", "
-            													+ img + ")" );
+            													+ value + ", '"
+            													+ img + "')" );
             return true;
             
 		}
@@ -320,7 +320,5 @@ public class OperaCreator implements Creator{
 		}
 		
 	}
-	
-
 	
 }
