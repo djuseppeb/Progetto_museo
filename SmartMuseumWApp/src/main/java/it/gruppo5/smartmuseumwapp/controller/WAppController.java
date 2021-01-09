@@ -24,10 +24,10 @@ public class WAppController {
 	@RequestMapping("/home")
 	public String getHomePage(Model model) {
 		//View visitors value in home page
-		String permission = "Ingresso Consentito";
+		String permission = "Consentito";
 		Integer visitors = manager.getNumOfVisitors();
 		if(visitors > 100)
-			permission = "Ingresso NON Consentito";
+			permission = "NON Consentito";
 		model.addAttribute("permission", permission);
 		model.addAttribute("visitors", visitors.toString());
 		
