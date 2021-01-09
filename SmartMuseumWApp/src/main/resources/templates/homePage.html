@@ -16,6 +16,7 @@
 .button {
  	text-decoration: none;
 }
+
 ​​​​​​​​
 </style>
 <!-- Menu -->
@@ -47,20 +48,23 @@
     <h2>Orari Di Visita</h2>
     <p><i class="fa fa-map-marker" style="width:30px"></i><b>Lunedì</b>: 9:00 - 13:00/ 16 - 19:00</p>
     <p><i class="fa fa-map-marker" style="width:30px"></i><b>Martedì</b>: 9:00 - 13:00/ 16 - 19:00</p>
-    <p><i class="fa fa-map-marker" style="width:30px"></i><b>Mercoledì</b>: 9:00 - 13:00/ 16 - 19:00</p>
-    <p><i class="fa fa-map-marker" style="width:30px"></i><b>Giovedì</b>: 9:00 - 13:00/ 16 - 19:00</p>
-    <p><i class="fa fa-map-marker" style="width:30px"></i><b>Venerdì</b>: 9:00 - 13:00/ 16 - 19:00</p>
+    <p><i class="fa fa-map-marker" style="width:30px"></i><b>Mercoledì</b>: 9:00 - 13:00/ 16:00 - 19:00</p>
+    <p><i class="fa fa-map-marker" style="width:30px"></i><b>Giovedì</b>: 9:00 - 13:00/ 16:00 - 19:00</p>
+    <p><i class="fa fa-map-marker" style="width:30px"></i><b>Venerdì</b>: 9:00 - 13:00/ 16:00 - 19:00</p>
     <p><i class="fa fa-map-marker" style="width:30px"></i><b>Sabato</b>: 9:00 - 13:00</p>
     <p><i class="fa fa-map-marker" style="width:30px"></i><b>Domenica</b>: CHIUSO</p>
   </div>
-  <div class="w3-third w3-center w3-large w3-dark-grey w3-text-white" style="height:400px">
-	<h2>Vieni a Trovarci</h2>
-	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.8741023651464!2d2.3354553156744573!3d48.86061107928757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671d877937b0f%3A0xb975fcfa192f84d4!2sMuseo%20del%20Louvre!5e0!3m2!1sit!2sit!4v1609891144913!5m2!1sit!2sit" width="480" height="320" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    <div class="w3-third w3-center w3-large w3-dark-grey w3-text-whiteb w3-bar w3-white w3-wide w3-padding w3-card" style="height:400px" id=buttonsDIVstyle="height:400px">
+	<h2>Riscatta il Coupon</h2>
+	<!-- popup -->
+	<img src="https://www.otticaeffe.it/wp-content/uploads/2017/02/sconto-50-sfondo-trasparente-1-300x180.png" style="width:70%"></a>
+	<a class="w3-xxlarge w3-text-white w3-padding w3-opacity-min button" onclick="popup('coupon', 'about')">Clicca qui</span></a>
   </div>
   <div class="w3-third w3-center w3-large w3-grey w3-text-white" style="height:400px">
     <h2>Visitatori Attuali</h2>
     <p class="w3-xlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min" th:text=" ${visitors} "></span></p>
-    <p th:text=" ${permission} "></p>
+    <p class="w3-large w3-text-white ">Causa emergenza COVID-19 il numero di visitatori consentito sarà limitato.Vi invitiamo a tenere sotto controllo lo stato qui riportato onde evitare assembramenti al di fuori del museo<br><br>Attualmente l'ingresso è:<br></p>
+    <p th:text=" ${permission} " class="w3-xlarge w3-text-white w3-padding w3-black w3-opacity-min"></p>
   </div>
 </div>
   
@@ -108,6 +112,19 @@ for (var i = 0; i < btns.length; i++) {
   	});
 }
 
+//popup
+function popup(mylink, windowname)
+{
+  if (! window.focus)
+    return true;
+  var href;
+  if (typeof(mylink) == 'string')
+    href=mylink;
+  else 
+    href=mylink.href;
+  window.open(href, windowname, 'width=400,height=650,scrollbars=yes');
+  return false;
+}
 </script>
 
 <!-- Footer -->
