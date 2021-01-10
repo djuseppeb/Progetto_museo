@@ -29,7 +29,7 @@ public class WAppController {
 		if(visitors > 100)
 			permission = "NON Consentito";
 		model.addAttribute("permission", permission);
-		model.addAttribute("visitors", visitors.toString());
+		model.addAttribute("visitors", visitors);
 		
 		List<Opera> incomingArtworks = manager.getIncomingOpera();
 		model.addAttribute("artworks", incomingArtworks);

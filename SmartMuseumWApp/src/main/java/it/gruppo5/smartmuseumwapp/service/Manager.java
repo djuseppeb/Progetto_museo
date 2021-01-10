@@ -162,4 +162,6 @@ public class Manager {
 		for(int i = 0; i < rooms.size(); i++)	np = np + rooms.get(i).getPeople();
 		return np;
 	}
+	
+
 }

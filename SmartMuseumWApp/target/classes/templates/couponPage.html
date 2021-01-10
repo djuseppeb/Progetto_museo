@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial;
+}
+
+.coupon {
+  border: 5px dotted #bbb;
+  width: 80%;
+  border-radius: 15px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.container {
+  padding: 2px 16px;
+  background-color: #f1f1f1;
+}
+
+.promo {
+  background: #ccc;
+  padding: 3px;
+}
+
+.expire {
+  color: red;
+}
+</style>
+</head>
+<body>
+
+<div class="coupon">
+  <div class="container">
+    <h3>Smart Museum Cupon</h3>
+  </div>
+  <img src="https://www.pngitem.com/pimgs/m/16-168440_50-off-transparent-free-png-50-off-png.png" style="width:100%;">
+  <div class="container" style="background-color:white">
+    <h2><b>50% di sconto all'ingresso</b></h2> 
+    <p>Riscatta il tuo cupon per ricevere un ingresso scontato al 50%. Mostra il codice all'ingresso(Valido per un solo utilizzo)</p>
+  </div>
+  <div class="container">
+    <p>CODICE: <span th:text="'SMG5-'+ ${ticket}" class="promo"></span></p>
+  </div>
+</div>
+
+</body>
+</html> 
